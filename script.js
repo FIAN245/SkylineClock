@@ -29,15 +29,15 @@ function updateClock() {
 
   // Perubahan langit
   if (h >= 6 && h < 12) { // Pagi
-    skyEl.style.background = "linear-gradient(#87ceeb, #f0f8ff)";
+    skyEl.style.background = "linear-gradient(#FFEEAD, #87ceeb)";
     sunEl.style.display = "block";
     moonEl.style.display = "none";
-  } else if (h >= 12 && h < 18) { // Siang
+  } else if (h >= 12 && h < 17) { // Siang
     skyEl.style.background = "linear-gradient(#00bfff, #87cefa)";
     sunEl.style.display = "block";
     moonEl.style.display = "none";
-  } else if (h >= 18 && h < 19) { // Senja
-    skyEl.style.background = "linear-gradient(#ff7e5f, #feb47b)";
+  } else if (h >= 17 && h < 19) { // Sore
+    skyEl.style.background = "linear-gradient(#FF7E5F, #FEB47B)";
     sunEl.style.display = "block";
     moonEl.style.display = "none";
   } else { // Malam
