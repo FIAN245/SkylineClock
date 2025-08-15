@@ -70,14 +70,15 @@ body {
   50% { opacity: 0.2; }
 }
 
-/* Awan dinamis */
+/* Awan variatif */
 .cloud {
   position: absolute;
   border-radius: 50px;
-  opacity: 0.8;
+  opacity: 0;
   box-shadow:
     50px 0 60px currentColor,
     100px 0 80px currentColor,
     150px 0 60px currentColor;
   background: currentColor;
+  transition: opacity 3s linear;
 }
