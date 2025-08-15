@@ -7,7 +7,9 @@ const clouds = [
   document.getElementById("cloud1"),
   document.getElementById("cloud2"),
   document.getElementById("cloud3"),
-  document.getElementById("cloud4")
+  document.getElementById("cloud4"),
+  document.getElementById("cloud5"),
+  document.getElementById("cloud6")
 ];
 
 let stars = [];
@@ -27,15 +29,17 @@ function createStars(num=100){
   }
 }
 
-// Bikin awan dinamis
+// Bikin awan variatif
 function initClouds(){
   clouds.forEach(cloud=>{
     cloud.style.top = Math.random()*70 + "%";
-    cloud.style.left = -Math.random()*400 + "px";
-    let size = 100 + Math.random()*150;
+    cloud.style.left = -Math.random()*500 + "px";
+    let size = 80 + Math.random()*200;
     cloud.style.width = size + "px";
     cloud.style.height = size*0.3 + "px";
-    cloud.dataset.speed = 0.2 + Math.random()*0.5;
+    cloud.dataset.speed = 0.1 + Math.random()*0.5;
+    cloud.style.opacity = Math.random()*0.6 + 0.4;
+    cloud.dataset.layer = Math.floor(Math.random()*3); // 0 = depan, 2 = belakang
   });
 }
 
@@ -51,7 +55,12 @@ function moveClouds(){
   clouds.forEach(cloud=>{
     let left = parseFloat(cloud.style.left);
     left += parseFloat(cloud.dataset.speed);
-    if(left>window.innerWidth+200) left=-300;
+    if(left > window.innerWidth + 200){
+      left = -300;
+      cloud.style.top = Math.random()*70 + "%";
+      cloud.style.opacity = Math.random()*0.6 + 0.4;
+      cloud.dataset.speed = 0.1 + Math.random()*0.5;
+    }
     cloud.style.left = left + "px";
   });
 }
