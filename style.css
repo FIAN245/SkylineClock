@@ -12,6 +12,7 @@ body {
   background: linear-gradient(#87ceeb, #f0f8ff);
   overflow: hidden;
   transition: background 1s linear;
+  cursor: pointer; /* Klik untuk ganti cuaca */
 }
 
 .sun, .moon {
@@ -81,4 +82,37 @@ body {
     150px 0 60px currentColor;
   background: currentColor;
   transition: opacity 3s linear;
+  z-index: 2;
+}
+
+/* Hujan */
+#rain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 10px;
+  background: rgba(173,216,230,0.7);
+  animation: fall linear infinite;
+}
+@keyframes fall {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(100vh); }
+}
+
+/* Kilat */
+#lightning {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
 }
