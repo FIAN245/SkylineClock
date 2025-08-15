@@ -1,4 +1,5 @@
 const clockEl = document.getElementById("clock");
+const dateEl = document.getElementById("date");
 const skyEl = document.getElementById("sky");
 const sunEl = document.getElementById("sun");
 const moonEl = document.getElementById("moon");
@@ -55,13 +56,21 @@ function moveClouds(){
   });
 }
 
-// Update jam, langit, matahari/bulan
+// Update jam, tanggal, langit, matahari/bulan
 function updateClock(){
   const now = new Date();
   let h = now.getHours();
   let m = now.getMinutes();
   let s = now.getSeconds();
+
+  // Update jam
   clockEl.textContent = String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+
+  // Update tanggal format: Jum, 08 Agustus 2025
+  const hari = ["Min","Sen","Sel","Rab","Kam","Jum","Sab"];
+  const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  let tanggalStr = `${hari[now.getDay()]}, ${String(now.getDate()).padStart(2,"0")} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
+  dateEl.textContent = tanggalStr;
 
   // Fase langit
   let skyColor, cloudColor;
@@ -95,10 +104,11 @@ function updateClock(){
   skyEl.style.background = `linear-gradient(${skyColor[0]},${skyColor[1]})`;
   setCloudColor(cloudColor);
 
-  // Posisi matahari/bulan (horizontal + sinus vertical)
-  let posX = (h + m/60)/24*window.innerWidth;
-  let angle = (h + m/60)/24*Math.PI;
-  let posY = Math.sin(angle)*200 + window.innerHeight*0.5;
+  // Posisi matahari/bulan (horizontal + melengkung sinus)
+  let totalMinutes = h*60 + m;
+  let dayFraction = totalMinutes / (24*60); // 0 - 1
+  let posX = dayFraction * window.innerWidth;
+  let posY = Math.sin(dayFraction * Math.PI) * 250 + window.innerHeight*0.5 - 125; // sinus vertikal
 
   if(sunEl.style.display==="block"){
     sunEl.style.left = posX + "px";
