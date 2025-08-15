@@ -64,3 +64,23 @@ body {
   0%, 100% { opacity: 0.8; }
   50% { opacity: 0.2; }
 }
+
+/* Awan */
+.cloud {
+  position: absolute;
+  width: 200px;
+  height: 60px;
+  border-radius: 50px;
+  opacity: 0.8;
+  animation: moveCloud 60s linear infinite;
+  box-shadow:
+    50px 0 60px currentColor,
+    100px 0 80px currentColor,
+    150px 0 60px currentColor;
+  background: currentColor;
+}
+
+@keyframes moveCloud {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
