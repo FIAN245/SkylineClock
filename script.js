@@ -14,7 +14,7 @@ const clouds = [
 
 let stars = [];
 
-// Bikin bintang
+// anggap aja bintang
 function createStars(num=100){
   for(let i=0;i<num;i++){
     let star = document.createElement("div");
@@ -29,7 +29,7 @@ function createStars(num=100){
   }
 }
 
-// Bikin awan variatif
+// awan variatif
 function initClouds(){
   clouds.forEach(cloud=>{
     cloud.style.top = Math.random()*70 + "%";
@@ -43,14 +43,14 @@ function initClouds(){
   });
 }
 
-// Set warna awan sesuai fase
+// set warna awan sesuai fase waktu
 function setCloudColor(color){
   clouds.forEach(cloud=>{
     cloud.style.color = color;
   });
 }
 
-// Update posisi awan
+// update posisi awan
 function moveClouds(){
   clouds.forEach(cloud=>{
     let left = parseFloat(cloud.style.left);
@@ -75,13 +75,13 @@ function updateClock(){
   // Update jam
   clockEl.textContent = String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
 
-  // Update tanggal format: Jum, 08 Agustus 2025
+  // Update tanggal format: hari, tanggal bulan tahun
   const hari = ["Min","Sen","Sel","Rab","Kam","Jum","Sab"];
   const bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
   let tanggalStr = `${hari[now.getDay()]}, ${String(now.getDate()).padStart(2,"0")} ${bulan[now.getMonth()]} ${now.getFullYear()}`;
   dateEl.textContent = tanggalStr;
 
-  // Fase langit
+  // Fase perubahan langit
   let skyColor, cloudColor;
   if(h>=6 && h<12){ // pagi
     skyColor = ["#FFEEAD","#87ceeb"];
