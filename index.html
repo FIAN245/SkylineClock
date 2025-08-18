@@ -1,38 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Skyline Clock + Cuaca Interaktif</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skyline Orbit Clock</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<div class="sky" id="sky">
-  <!-- Tanggal -->
-  <div class="date" id="date">Jum, 08 Agustus 2025</div>
-
-  <!-- Jam -->
-  <div class="clock" id="clock">00:00:00</div>
-
-  <div class="sun" id="sun"></div>
-  <div class="moon" id="moon"></div>
-
-  <!-- Awan dinamis -->
-  <div class="cloud" id="cloud1"></div>
-  <div class="cloud" id="cloud2"></div>
-  <div class="cloud" id="cloud3"></div>
-  <div class="cloud" id="cloud4"></div>
-  <div class="cloud" id="cloud5"></div>
-  <div class="cloud" id="cloud6"></div>
-
-  <!-- Kontainer hujan -->
-  <div id="rain"></div>
-
-  <!-- Kilat -->
-  <div id="lightning"></div>
-</div>
-
-<script src="script.js"></script>
+  <div id="sky">
+    <div id="orbit">
+      <div id="sun"></div>
+      <div id="moon"></div>
+    </div>
+    <div id="clouds"></div>
+    <div id="clock"></div>
+    <div id="date"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
